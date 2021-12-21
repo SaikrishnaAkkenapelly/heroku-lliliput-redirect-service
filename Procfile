@@ -1,0 +1,1 @@
+web: java -jar target/Redirect-Service-Redirect-Service-01.jar
