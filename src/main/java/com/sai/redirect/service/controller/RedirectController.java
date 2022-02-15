@@ -47,7 +47,7 @@ public class RedirectController
 		if(mappingService.checkIfExists(hash))
 		{
 			String text = mappingService.getLongURL(hash);
-			return new ResponseEntity<ResponseDTO>(new ResponseDTO(hash,text,"text not found.."),HttpStatus.NOT_FOUND);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(hash,text,"text found.."),HttpStatus.FOUND);
 		}
 		else
 		{
