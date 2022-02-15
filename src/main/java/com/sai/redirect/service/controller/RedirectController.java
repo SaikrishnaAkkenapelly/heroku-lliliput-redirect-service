@@ -40,4 +40,18 @@ public class RedirectController
 			return new ResponseEntity<ResponseDTO>(new ResponseDTO(shortURL,null,"short url not found.."),HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@GetMapping(path = "/text/{hash}")
+	public ResponseEntity<ResponseDTO> getText(@PathVariable String hash)
+	{
+		if(mappingService.checkIfExists(hash))
+		{
+			String text = mappingService.getLongURL(hash);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(hash,text,"text not found.."),HttpStatus.NOT_FOUND);
+		}
+		else
+		{
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(hash,null,"text not found.."),HttpStatus.NOT_FOUND);
+		}
+	}
 }
